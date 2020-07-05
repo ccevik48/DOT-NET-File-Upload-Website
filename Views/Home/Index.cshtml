@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>FileHoster</h1>
+    <p class="lead">FileHoster is the newest file hosting website, where you can upload your own files and download them from anywhere.</p>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            At FileHoster, you can upload any file you want and can then allow others to download 
+            it wherever there is an internet connection. Search through hundreds of thousands of 
+            files.
+        </p>
+        <p>@Html.ActionLink("Start Searching!", "Index", "Files", null, new { @class= "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>How Does It Work?</h2>
+        <p>Just make an account, and start uploading. You don't even need an account to download!</p>
+        <p>@Html.ActionLink("Start Here", "Create", "Users", null, new { @class= "btn btn-default" })</p>
+    </div>
+</div>

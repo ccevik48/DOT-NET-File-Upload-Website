@@ -1,0 +1,50 @@
+﻿@model FileUpload.Models.File
+
+@{
+    ViewBag.Title = "FileDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FileDetails</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileExt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileExt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileDesc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Download File", "Download", new { id = Model.FileId })
+</p>

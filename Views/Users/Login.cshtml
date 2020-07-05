@@ -1,0 +1,67 @@
+﻿@model FileUpload.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["Id"] != null)
+    {
+        Response.Redirect("~/Users/Profile");
+    }
+}
+
+<h2>Login</h2>
+
+
+<div id="login-div">
+    @using (Html.BeginForm("Login", "Users", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td></td>
+                <td>Login</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Username) &nbsp; &nbsp;
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Username)
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>@Html.ValidationMessageFor(model => model.Username)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Password) &nbsp; &nbsp;
+                </td>
+                <td>
+                    @Html.PasswordFor(model => model.Password)
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>@Html.ValidationMessageFor(model => model.Password)</td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="Login" /></td>
+            </tr>
+        </table>
+    }
+
+</div>
+<br />
+<p>
+    Don't have an account?<br />
+    @Html.ActionLink("Create an account", "Create", "Users")
+</p>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+

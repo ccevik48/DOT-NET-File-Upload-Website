@@ -1,0 +1,24 @@
+﻿@model FileUpload.Models.User
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["Id"] == null)
+    {
+        Response.Redirect("~/Users/Login");
+    }
+}
+
+<h2>My Profile</h2>
+
+<h3>hello, @Session["Username"]</h3>
+
+
+<p>
+    @Html.ActionLink("My Files", "MyFiles", "Files")
+</p>
+
+
+<p>
+    @Html.ActionLink("Logout", "LogOut", "Users")
+</p>

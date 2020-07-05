@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FileUpload.Models.File>
+
+@{
+    ViewBag.Title = "Latest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Latest Uploads</h2>
+
+
+<form action="Search" method="GET" class="form-group">
+    Search:
+    File Name: <input type="text" name="fname" placeholder="name" />
+    File Type (extension):<input type="text" name="fext" placeholder="txt, pdf, etc." />
+    File Description<input type="text" name="fdesc" placeholder="description" />
+
+    <input type="submit" value="Search" />
+</form>
+
+
+<table class="table" id="table1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileExt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileDesc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileExt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileDesc)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "FileDetails", new { id = item.FileId })
+            </td>
+        </tr>
+    }
+
+</table>
+

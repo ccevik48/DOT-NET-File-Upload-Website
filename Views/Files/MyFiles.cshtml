@@ -1,0 +1,56 @@
+﻿@model IEnumerable<FileUpload.Models.File>
+
+@{
+    ViewBag.Title = "MyFiles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["Id"] == null)
+    {
+        Response.Redirect("~/Users/Login", false);
+    }
+}
+
+<h2>MyFiles</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileExt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileDesc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileExt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileDesc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "FileDetails", new { id=item.FileId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
